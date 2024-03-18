@@ -39,7 +39,6 @@ jobs:
         uses: docker/build-push-action@v5
         env:
           DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
-          ACR_NAMESPACE: ${{ secrets.ACR_NAMESPACE }}
         with:
           push: true
           context: .
@@ -51,5 +50,3 @@ jobs:
             ${{ env.DOCKERHUB_USER }}/${{ env.APP_NAME }}:${{ env.APP_VERSION }}
             ghcr.io/${{ env.GITHUB_USER }}/${{ env.APP_NAME }}:latest
             ghcr.io/${{ env.GITHUB_USER }}/${{ env.APP_NAME }}:${{ env.APP_VERSION }}
-            registry.cn-shanghai.aliyuncs.com/${{ env.ACR_NAMESPACE }}/${{ env.APP_NAME }}:latest
-            registry.cn-shanghai.aliyuncs.com/${{ env.ACR_NAMESPACE }}/${{ env.APP_NAME }}:${{ env.APP_VERSION }}
