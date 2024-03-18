@@ -1,4 +1,4 @@
-# MicroBin
+# MicroBin 汉化版
 ![Screenshot](.github/index.png)
 [![Docker Pulls](https://img.shields.io/docker/pulls/mikusa/microbin-cn?label=Docker%20pulls)](https://img.shields.io/docker/pulls/mikusa/microbin-cn?label=Docker%20pulls)
 
