@@ -9,7 +9,7 @@
   {% if args.public_path_as_str() != "" && pasta.pasta_type == "url" %}
   <button id="copy-redirect-button" class="small-button" style="margin-right:
   0.5rem">
-    Copy Redirect
+    复制重定向链接
   </button>
   {%- endif %}
   <a style="margin-right: 1rem" href="{{ args.public_path_as_str()  }}/raw/{{pasta.id_as_animals()}}">原始文本</a>
@@ -25,7 +25,7 @@
     href="{{ args.public_path_as_str()  }}/upload/{{pasta.id_as_animals()}}"><i>{{pasta.id_as_animals()}}</i></a>
   {% if args.public_path_as_str() != "" %}
   <button id="copy-url-button" class="small-button" style="margin-right: 0">
-    Copy URL
+    复制链接
   </button>
   {%- endif %}
 </div>

@@ -17,7 +17,7 @@
             {% endif %}
             <thead>
                 <th style="width: 25%">
-                    密钥
+                    标识符
                 </th>
                 <th style="width: 10%">
                 </th>
@@ -48,10 +48,10 @@
                         {% if args.public_path_as_str() != "" %}
                         {% if args.short_path_as_str() == "" %}
                         <a style="margin-right:1rem; cursor: pointer;" class="copy-button" null
-                            data-url="{{ args.public_path_as_str()}}/upload/{{pasta.id_as_animals()}}">Copy</a>
+                            data-url="{{ args.public_path_as_str()}}/upload/{{pasta.id_as_animals()}}">复制</a>
                         {% else %}
                         <a style="margin-right:1rem; cursor: pointer;" class="copy-button" data-url="{{ args.short_path_as_str()
-                        }}/p/{{pasta.id_as_animals()}}">Copy</a>
+                        }}/p/{{pasta.id_as_animals()}}">复制</a>
                         {% endif %}
                         {%- endif %}
                     </td>
@@ -103,7 +103,7 @@
                 {% endif %}
                 <thead>
                     <th style=" width: 25%">
-                        密钥
+                        标识符
                     </th>
                     <th style="width: 10%">
                     </th>
@@ -173,7 +173,7 @@
             navigator.clipboard.writeText(event.srcElement.getAttribute("data-url"))
             event.srcElement.innerHTML = "已复制"
             setTimeout(() => {
-                event.srcElement.innerHTML = "Copy"
+                event.srcElement.innerHTML = "复制"
             }, 1000)
         })
     }

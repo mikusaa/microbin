@@ -435,9 +435,9 @@
                 copyURLBtns.item(i).addEventListener("click", event => {
                     event.srcElement
                     navigator.clipboard.writeText(event.srcElement.getAttribute("data-url"))
-                    event.srcElement.innerHTML = "Copied"
+                    event.srcElement.innerHTML = "已复制"
                     setTimeout(() => {
-                        event.srcElement.innerHTML = "Copy"
+                        event.srcElement.innerHTML = "复制"
                     }, 1000)
                 })
             }
