@@ -127,10 +127,10 @@ pasta.file_embeddable() && !pasta.encrypt_client %}
 
 <div>
   {% if args.show_read_stats %} {% if pasta.read_count == 1 %}
-  <p style="font-size: small">已访问 {{pasta.read_count}} 次，上次在
+  <p style="font-size: small">已访问 {{pasta.read_count}} 次，于
     {{pasta.last_read_time_ago_as_string()}}</p>
   {%- else %}
-  <p style="font-size: small">已访问 {{pasta.read_count}} 次，上次在
+  <p style="font-size: small">已访问 {{pasta.read_count}} 次，于
     {{pasta.last_read_time_ago_as_string()}}</p>
   {%- endif %} {%- endif %}
 
