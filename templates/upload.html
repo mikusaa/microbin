@@ -3,7 +3,7 @@
   {% if pasta.content != "" %}
   <button id="copy-text-button" class="small-button" style="margin-right:
   0.5rem">
-    Copy Text
+    复制文本
   </button>
 
   {% if args.public_path_as_str() != "" && pasta.pasta_type == "url" %}
@@ -12,14 +12,13 @@
     Copy Redirect
   </button>
   {%- endif %}
-  <a style="margin-right: 1rem" href="{{ args.public_path_as_str()  }}/raw/{{pasta.id_as_animals()}}">Raw Text
-    Content</a>
+  <a style="margin-right: 1rem" href="{{ args.public_path_as_str()  }}/raw/{{pasta.id_as_animals()}}">原始文本</a>
   {%- endif %} {% if args.qr && args.public_path_as_str() != "" %}
-  <a style="margin-right: 1rem" href="{{ args.public_path_as_str()  }}/qr/{{pasta.id_as_animals()}}">QR</a>
+  <a style="margin-right: 1rem" href="{{ args.public_path_as_str()  }}/qr/{{pasta.id_as_animals()}}">二维码</a>
   {%- endif %} {% if pasta.editable && !pasta.encrypt_client %}
-  <a style="margin-right: 1rem" href="{{ args.public_path_as_str()  }}/edit/{{pasta.id_as_animals()}}">Edit</a>
+  <a style="margin-right: 1rem" href="{{ args.public_path_as_str()  }}/edit/{{pasta.id_as_animals()}}">编辑</a>
   {%- endif %}
-  <a style="margin-right: 1rem" href="{{ args.public_path_as_str()  }}/remove/{{pasta.id_as_animals()}}">Remove</a>
+  <a style="margin-right: 1rem" href="{{ args.public_path_as_str()  }}/remove/{{pasta.id_as_animals()}}">移除</a>
 </div>
 <div style="float: right">
   <a style="margin-right: 0.5rem"
@@ -39,7 +38,7 @@ justify-content: center; align-items: center;">
   <div id="decryption">
     {% if pasta.encrypt_client %}
     <label for="password-field" style="margin-bottom: 0.5em;">
-      Please enter your key to decrypt this upload. <sup> <a href="/guide#encryption">﹖</a></sup>
+      请输入密码以解密此上传内容。 <sup> <a href="/guide#encryption">﹖</a></sup>
     </label>
     <input class="small-button" placeholder="Key" style="margin-right: 0.5rem" type="password" id="password-field"
       autocomplete="off" />
@@ -47,7 +46,7 @@ justify-content: center; align-items: center;">
     <button class="small-button" id="decrypt-button" style="margin-right:
     0.5rem">
       <b>
-        Decrypt text
+        解密文本
       </b>
     </button>
     {%- endif %}
@@ -88,7 +87,7 @@ justify-content: center; align-items: center;">
     [{{pasta.file.as_ref().unwrap().size}}]</p>
   <a href="{{ args.public_path_as_str()}}/file/{{pasta.id_as_animals()}}" id="download-link">
     <button class="download-button" autofocus>
-      Download
+      下载
     </button>
   </a>
 </span>
@@ -104,7 +103,7 @@ pasta.file_embeddable() && !pasta.encrypt_client %}
     [{{pasta.file.as_ref().unwrap().size}}]</p>
   <a href="{{ args.public_path_as_str()      }}/file/{{pasta.id_as_animals()}}" id="download-link" download>
     <button class="download-button" autofocus>
-      Download
+      下载
     </button>
   </a>
 </span>
@@ -120,7 +119,7 @@ pasta.file_embeddable() && !pasta.encrypt_client %}
     [{{pasta.file.as_ref().unwrap().size}}]</p>
   <a href="{{ args.public_path_as_str()      }}/file/{{pasta.id_as_animals()}}" download id="download-link">
     <button class="download-button">
-      Download
+      下载
     </button>
   </a>
 </span>
@@ -128,10 +127,10 @@ pasta.file_embeddable() && !pasta.encrypt_client %}
 
 <div>
   {% if args.show_read_stats %} {% if pasta.read_count == 1 %}
-  <p style="font-size: small">Read {{pasta.read_count}} time, last
+  <p style="font-size: small">已访问 {{pasta.read_count}} 次，上次在
     {{pasta.last_read_time_ago_as_string()}}</p>
   {%- else %}
-  <p style="font-size: small">Read {{pasta.read_count}} times, last
+  <p style="font-size: small">已访问 {{pasta.read_count}} 次，上次在
     {{pasta.last_read_time_ago_as_string()}}</p>
   {%- endif %} {%- endif %}
 
@@ -187,9 +186,9 @@ pasta.file_embeddable() && !pasta.encrypt_client %}
   if (copyURLBtn) {
     copyURLBtn.addEventListener("click", () => {
       navigator.clipboard.writeText(url)
-      copyURLBtn.innerHTML = "Copied"
+      copyURLBtn.innerHTML = "已复制"
       setTimeout(() => {
-        copyURLBtn.innerHTML = "Copy URL"
+        copyURLBtn.innerHTML = "复制链接"
       }, 1000)
     })
   }
@@ -198,9 +197,9 @@ pasta.file_embeddable() && !pasta.encrypt_client %}
   if (copyRedirectBtn) {
     copyRedirectBtn.addEventListener("click", () => {
       navigator.clipboard.writeText(redirect_url)
-      copyRedirectBtn.innerHTML = "Copied"
+      copyRedirectBtn.innerHTML = "已复制"
       setTimeout(() => {
-        copyRedirectBtn.innerHTML = "Copy Redirect"
+        copyRedirectBtn.innerHTML = "复制重定向链接"
       }, 1000)
     })
   }
@@ -209,9 +208,9 @@ pasta.file_embeddable() && !pasta.encrypt_client %}
     copyTextBtn.addEventListener("click", () => {
       const decodeContent = decodeEntity(content)
       navigator.clipboard.writeText(decodeContent)
-      copyTextBtn.innerHTML = "Copied"
+      copyTextBtn.innerHTML = "已复制"
       setTimeout(() => {
-        copyTextBtn.innerHTML = "Copy Text"
+        copyTextBtn.innerHTML = "复制文本"
       }, 1000)
     })
   }
@@ -252,7 +251,7 @@ pasta.file_embeddable() && !pasta.encrypt_client %}
     // Decrypt file contents
     const decryptedContents = decryptFileWithPassword(passwordField.value.trim(), encryptedFile);
     if (!decryptedContents) {
-      throw new Error('Failed to decrypt file');
+      throw new Error('解密文件失败');
     }
 
     // Create blob from decrypted file contents

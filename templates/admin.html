@@ -1,55 +1,55 @@
 {% include "header.html" %}
 
-<h2>Welcome to MicroBin</h2>
+<h2>欢迎使用 MicroBin</h2>
 <div style="height: 200px;">
     <div style="float: left">
-        <h4>Links</h4>
-        <a href="https://microbin.eu/documentation" style="margin-right: 1rem">Documentation and Help</a>
+        <h4>链接</h4>
+        <a href="https://microbin.eu/documentation" style="margin-right: 1rem">文档与帮助</a>
         <br>
-        <a href="https://github.com/szabodanika/microbin" style="margin-right: 1rem">Source Code</a>
+        <a href="https://github.com/szabodanika/microbin" style="margin-right: 1rem">源代码</a>
         <br>
-        <a href="https://github.com/szabodanika/microbin/issues" style="margin-right: 1rem">Feedback</a>
+        <a href="https://github.com/szabodanika/microbin/issues" style="margin-right: 1rem">反馈</a>
         <br>
-        <a href="https://microbin.eu/donate">Donate and Sponsor</a>
+        <a href="https://microbin.eu/donate">捐赠</a>
     </div>
 
     <div style="float: right">
-        <h4>Info</h4>
+        <h4>信息</h4>
         <table style="width: 400px">
             <tr>
-                <td><b>Version</b></td>
+                <td><b>版本</b></td>
                 <td>{{version_string}} </td>
             </tr>
             <tr>
-                <td><b>Status</b></td>
+                <td><b>状态</b></td>
                 <td>{{status}} </td>
             </tr>
             <tr>
-                <td><b>Uploads</b></td>
+                <td><b>已上传</b></td>
                 <td>{{pastas.len()}} </td>
             </tr>
         </table>
     </div>
 </div>
 
-<h4>Update</h4>
+<h4>更新</h4>
 {% if update.is_some() %}
 <p><b>Update available</b> {{update.as_ref().unwrap().long_title}}</p>
 <p><b>Date</b> {{update.as_ref().unwrap().date}}</p>
 <p><b>Update type</b> {{update.as_ref().unwrap().update_type}}</p>
 <p><b>Description</b> {{update.as_ref().unwrap().description}}</p>
 {%- else %}
-<p>No updates available.</p>
+<p>暂无更新。</p>
 {%- endif %}
 
 
 {% if message != "" %}
-<h4>Messages</h4>
+<h4>信息</h4>
 <p>{{message}}</p>
 {%- endif %}
 
 
-<h3>Uploads</h3>
+<h3>已上传项目</h3>
 {% if args.pure_html %}
 <table border="1" style="width: 100%;">
     {% else %}

@@ -1,82 +1,47 @@
 {% include "header.html" %}
 <a id="options">
-  <h2>Options</h2>
+  <h2>选项</h2>
 </a>
 
 <a id="expiration">
-  <h3>Expiration</h3>
+  <h3>过期时间</h3>
 </a>
 <p>
-  Use the expiration dropdown to choose how long you want your upload to exist.
-  When the selected time has expired, it will be removed from the server.
+  使用「过期时间」下拉菜单来选择你希望你的上传内容存在的时间长短。当选定的时间过期后，它将会从服务器中被删除。
 </p>
 
 {% if args.enable_burn_after %}
 <a id="burn-after">
-  <h3>Burn After</h3>
+  <h3>阅后即焚</h3>
 </a>
 <p>
-  Use the burn after dropdown to set a limit on how many times your data can be
-  accessed before it will be removed from the server.
+  使用「阅后即焚」下拉菜单来设定你的数据在被从服务器中删除之前可以被访问的次数限制。
 </p>
 {%- endif %}
 
 {% if args.highlightsyntax %}
 <a id="syntax">
-  <h3>Syntax Highlighting</h3>
+  <h3>语法高亮</h3>
 </a>
-<p>
-  Use the syntax highlighting dropdown to enable syntax highlighting for your upload, making it easier to read.
-  You may choose to have the syntax highlighting done by your browser, which
-  will also recognise the language automatically. You can select server-side
-  highlighting, where you need to select the language yourself, but the code
-  will get highlighting without javascript.
-</p>
+<p>使用「语法高亮」下拉菜单为你的上传内容启用语法高亮，使其更易于阅读。你可以选择让你的浏览器进行语法高亮，这样浏览器会自动识别语言。你也可以选择服务器端的高亮，这需要你自己选择语言，但代码会在没有JavaScript的情况下获得高亮。</p>
 {%- endif %}
 
 <a id="password">
-  <h3>Password</h3>
+  <h3>密码</h3>
 </a>
-<p>
-  Use the password field to set a password for your upload. This will encrypt
-  your data while stored on our server with your password, and you will need to
-  enter the password to access (in case of private and secret uploads) or to
-  modify (in case of read-only uploads). Your password is encrypted, and in case
-  of secret uploads, we never even see it.
-</p>
-
-<a id="privacy">
-  <h3>Privacy</h3>
-</a>
-<p>
-  Use this dropdown to select the level of protection your upload needs. Use
-  lower privacy levels if you or your organisation host MicroBin, and higher
-  privacy levels if you are using a public MicroBin service.
-</p>
-<h4>Level 1: Public</h4>
-<p>This privacy level allows everyone to find, see, modify and remove your upload.</p>
-<h4>Level 2: Unlisted (recommended)</h4>
-<p>Unlisted uploads cannot be found unless someone knows its unique, random
-  identifier. If someone knows this identifier, they can see, modify and remove
-  the upload.</p>
-<h4>Level 3: Read-only</h4>
-<p>With this privacy setting, the upload cannot be found unless someone knows
-  its unique, random identifier. If someone knows this identifier, they can see
-  the contents but cannot modify or remove it without entering the password of
-  the upload.
-</p>
-<h4>Level 4: Private</h4>
-<p>With this privacy setting, the upload cannot be found unless someone knows
-  its unique, random identifier. If someone knows this identifier, they cannot
-  see, modify or remove it without entering the password of the upload. Your
-  upload and its attachments are encrypted, so they are stored safely.</p>
-<h4>Level 5: Secret</h4>
-<p>With this privacy setting, the upload cannot be found unless someone knows
-  its unique, random identifier. If someone knows this identifier, they cannot
-  see, modify or remove it without entering the password of the upload. Your
-  browser sends us an already encrypted version, so the unencrypted data and
-  password never even leave your device. This option requires you to enter your
-  password many times when accessing your data, but is extremely safe.</p>
+<p>使用「密码」字段为你的上传设置密码。这将用你的密码对存储在我们服务器上的数据进行加密，你需要输入密码才能访问（在私有和秘密上传的情况下）或修改（在只读上传的情况下）你的数据。你的密码是加密的，而且在秘密上传的情况下，我们甚至从未看到过它。</p>
+<a id="privacy"><h3>隐私</h3></a>
+<p>使用这个下拉菜单来选择你的上传内容需要的保护级别。如果你或你的组织托管了MicroBin，可以使用较低的隐私级别；如果你正在使用公共的MicroBin服务，可以选择较高的隐私级别。</p>
+<h4>级别1：公开</h4>
+<p>这种隐私级别允许所有人找到、查看、修改和删除你的上传内容。这种级别的保护适合于你希望公开分享，并且不介意其他人可能对其进行修改或删除的内容。请注意，这种级别的保护可能会带来一些风险，因为你的内容可能会被他人恶意修改或删除。</p>
+<h4>级别2：不公开（推荐）</h4>
+<p>未列出的上传内容除非有人知道其独特的、随机的标识符，否则无法找到。如果有人知道这个标识符，他们可以查看、修改和删除上传内容。</p>
+<h4>级别3：只读</h4>
+<p>使用这种隐私设置，除非有人知道其独特的、随机的标识符，否则无法找到上传内容。如果有人知道这个标识符，他们可以查看内容，但是没有输入上传密码的情况下，不能修改或删除。</p>
+<h4>级别4：私有</h4>
+<p>使用这种隐私设置，除非有人知道其独特的、随机的标识符，否则无法找到上传内容。如果有人知道这个标识符，他们在没有输入上传密码的情况下，不能查看、修改或删除。你的上传内容及其附件都经过加密，所以存储安全。</p>
+<h4>级别5：加密</h4>
+<p>使用这种隐私设置，除非有人知道其独特的、随机的标识符，否则无法找到上传内容。如果有人知道这个标识符，他们在没有输入上传密码的情况下，不能查看、修改或删除。你的浏览器向我们发送已经加密的版本，所以未加密的数据和密码甚至从未离开你的设备。这个选项要求你在访问数据时多次输入密码，但是非常安全。</p>
 
 
 {% include "footer.html" %}
